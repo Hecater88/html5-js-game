@@ -24,6 +24,32 @@
         context.clearRect(210, 20, 30, 20);
         // Clear a rectangle of width 30 and height 20 pixels at (260,20)
         context.clearRect(260, 20, 30, 20);
+
+        // Get a handle to the image object
+        var image = document.getElementById("spaceship");
+        // Draw the image at (0,350)
+        context.drawImage(image, 0, 350);
+        // Scaling the image to half the original size
+        context.drawImage(image, 0, 400, 100, 25);
+        // Drawing part of the image
+        context.drawImage(image, 0, 0, 60, 50, 0, 420, 60, 50);
+
+        //Translate origin to location of object
+        context.translate(250, 370);
+        //Rotate about the new origin by 60 degrees
+        context.rotate(Math.PI / 3);
+        context.drawImage(image, 0, 0, 60, 50, -30, -25, 60, 50);
+        //Restore to original state by rotating and translating back
+        context.rotate(-Math.PI / 3);
+        context.translate(-240, -370);
+        //Translate origin to location of object
+        context.translate(300, 370);
+        //Rotate about the new origin
+        context.rotate((3 * Math.PI) / 4);
+        context.drawImage(image, 0, 0, 60, 50, -30, -25, 60, 50);
+        //Restore to original state by rotating and translating back
+        context.rotate((-3 * Math.PI) / 4);
+        context.translate(-300, -370);
       }
     </script>
   </head>
@@ -36,5 +62,6 @@
     >
       Estas utilizando un navegador muy viejo, cambialo.
     </canvas>
+    <img src="spaceship.png" id="spaceship" />
   </body>
 </html>
